@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.lehow.net.net.LoadingDialogFragment;
 import com.lehow.net.net.NetApi;
 import com.lehow.net.net.NetHelper;
+import io.reactivex.Maybe;
+import io.reactivex.MaybeSource;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
@@ -40,10 +42,9 @@ public abstract class BaseActivity extends AppCompatActivity implements ILoading
 
           @Override public Object invoke(Object proxy, final Method method, final Object[] args)
               throws Throwable {
-            return Observable.just(true)
-                .flatMap(new Function<Boolean, ObservableSource<?>>() {
-                  @Override public ObservableSource<?> apply(Boolean aBoolean) throws Exception {
-                    Observable<?> invoke = (Observable<?>) method.invoke(realNetApi, args);//执行原来的方法
+            return Maybe.just(true).flatMap(new Function<Boolean, MaybeSource<?>>() {
+              @Override public MaybeSource<?> apply(Boolean aBoolean) throws Exception {
+                Maybe<?> invoke = (Maybe<?>) method.invoke(realNetApi, args);//执行原来的方法
                     return invoke;
                   }
                 })

@@ -20,30 +20,30 @@ public class RxTransformer {
   private static final String TAG = "RxTransformer";
 
   private static class TransfIoMain {
-    private static final ObservableTransformer TRANSFORMER = new ObservableTransformer() {
-      @Override public ObservableSource apply(Observable upstream) {
+    private static final MaybeTransformer TRANSFORMER = new MaybeTransformer() {
+      @Override public MaybeSource apply(Maybe upstream) {
         return upstream.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
       }
     };
   }
 
-  public static <T> ObservableTransformer io_main() {
+  public static <T> MaybeTransformer io_main() {
     return TransfIoMain.TRANSFORMER;
   }
 
-  public static <T> ObservableTransformer waitLoading(final ILoadingView iLoadingView) {
+  public static <T> MaybeTransformer waitLoading(final ILoadingView iLoadingView) {
 
-    return new ObservableTransformer<T, T>() {
+    return new MaybeTransformer<T, T>() {
 
-      @Override public ObservableSource<T> apply(final Observable<T> upstream) {
-        return Observable.using(new Callable<ILoadingView>() {
+      @Override public MaybeSource<T> apply(final Maybe<T> upstream) {
+        return Maybe.using(new Callable<ILoadingView>() {
           @Override public ILoadingView call() throws Exception {
             Log.i(TAG, "show: "+Thread.currentThread());
             iLoadingView.show();
             return iLoadingView;
           }
-        }, new io.reactivex.functions.Function<ILoadingView, ObservableSource<? extends T>>() {
-          @Override public ObservableSource<? extends T> apply(ILoadingView iLoadingView)
+        }, new io.reactivex.functions.Function<ILoadingView, MaybeSource<? extends T>>() {
+          @Override public MaybeSource<? extends T> apply(ILoadingView iLoadingView)
               throws Exception {
             Log.i(TAG, "dowork: "+Thread.currentThread());
             return upstream;
