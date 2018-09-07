@@ -72,4 +72,4 @@ Maybe如果onNext对象为null，会执行onComplete方法，跟我们的预期�
 
 当然还封装了一个NetMaybeObservable 将onComplete的统一到onSuccess中，简化业务数据的处理。
 
-
+## 注意compose的顺序，否则会出现Dialog的处理发送在子线程上
