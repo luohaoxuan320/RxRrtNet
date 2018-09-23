@@ -1,4 +1,4 @@
-package com.lehow.net.net;
+package com.lehow.testnet.net;
 
 import io.reactivex.Maybe;
 import retrofit2.http.GET;

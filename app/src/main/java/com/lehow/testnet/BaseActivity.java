@@ -1,4 +1,4 @@
-package com.lehow.net;
+package com.lehow.testnet;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,14 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.lehow.net.net.LoadingDialogFragment;
-import com.lehow.net.net.NetApi;
-import com.lehow.net.net.NetHelper;
+import com.lehow.net.ILoadingView;
+import com.lehow.net.RxTransformer;
+import com.lehow.testnet.net.LoadingDialogFragment;
+import com.lehow.testnet.net.NetApi;
+import com.lehow.testnet.net.NetHelper;
 import io.reactivex.Maybe;
 import io.reactivex.MaybeSource;
-import io.reactivex.Observable;
-import io.reactivex.ObservableSource;
 import io.reactivex.functions.Function;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

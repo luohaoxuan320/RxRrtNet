@@ -1,4 +1,4 @@
-package com.lehow.net.net;
+package com.lehow.testnet.net;
 
 import com.google.gson.Gson;
 import com.lehow.net.converter.HttpResult;

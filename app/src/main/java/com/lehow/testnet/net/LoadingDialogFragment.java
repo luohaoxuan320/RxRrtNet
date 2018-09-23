@@ -1,4 +1,4 @@
-package com.lehow.net.net;
+package com.lehow.testnet.net;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import com.lehow.net.R;
+import com.lehow.testnet.R;
 
 /**
  * desc:

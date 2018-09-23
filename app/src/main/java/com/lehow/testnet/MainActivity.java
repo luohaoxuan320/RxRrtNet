@@ -1,4 +1,4 @@
-package com.lehow.net;
+package com.lehow.testnet;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
