@@ -1,6 +1,6 @@
 package com.lehow.net.converter;
 
-import android.support.annotation.Nullable;
+import io.reactivex.annotations.Nullable;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Array;

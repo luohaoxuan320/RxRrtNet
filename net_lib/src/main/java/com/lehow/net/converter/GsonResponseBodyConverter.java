@@ -33,7 +33,8 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
         throw new JsonIOException("JSON document was not fully consumed.");
       }
       if (result != null && result.getCode() != ApiStateException.STATE_OK) {
-        throw new ApiStateException(result.getCode(), result.getMsg());
+        throw new ApiStateException(result.getCode(), result.getMsg(), result.getDateTime(),
+            result.getEntity());
       }
       return result == null ? null : result.getEntity();
     } finally {

@@ -3,11 +3,13 @@ package com.lehow.net.converter;
 import com.google.gson.annotations.SerializedName;
 
 public class HttpResult<T> {
-  @SerializedName("obj")
-  private T entity;
-  @SerializedName("message")
+  @SerializedName("data") private T entity;
   private String msg;
   private int code;
+  private String dateTime;
+  private String status;
+
+  private Object validMessage;
 
   public T getEntity() {
     return entity;
@@ -31,5 +33,21 @@ public class HttpResult<T> {
 
   public void setCode(int code) {
     this.code = code;
+  }
+
+  public String getDateTime() {
+    return dateTime;
+  }
+
+  public void setDateTime(String dateTime) {
+    this.dateTime = dateTime;
+  }
+
+  public String getStatus() {
+    return status;
+  }
+
+  public void setStatus(String status) {
+    this.status = status;
   }
 }

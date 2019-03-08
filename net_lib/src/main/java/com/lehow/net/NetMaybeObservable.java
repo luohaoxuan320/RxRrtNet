@@ -16,6 +16,7 @@ public abstract class NetMaybeObservable<T> implements MaybeObserver<T> {
   }
 
   @Override public void onComplete() {//服务器返回的entity为null，会走这个方法，这里做转发
-      onSuccess(null);
+    onSuccess(null);
   }
+
 }
